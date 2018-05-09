@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #editor: cpt_redbeard
-#Task: build a ton of images to test with
+#Task: build a ton of images to test with, delete them, retag them, push them
 
 #modifiable values
 images="10000"
