@@ -12,7 +12,7 @@ newrepo="NewRepoName"
 newimage="NewImageName"
 
 #constant
-count="0"
+count="605"
 
 echo "Make, Tag, Push or Destroy?"
 echo "Push only pushes from the newtag"
@@ -25,7 +25,7 @@ echo "Destroying..."
 while [ ${images} -gt ${count} ];
 do
         docker rmi $repo/$image:$count
-        #docker build -t $repo/$image:$count .
+        sleep 2
 count=$[$count+1]
 done
 ;;
@@ -37,6 +37,7 @@ while [ ${images} -gt ${count} ];
 do
         #docker rmi $repo/$image:$count
         docker tag $repo/$image:$count $registry/$newrepo/$newimage:$count
+        sleep 2
 count=$[$count+1]
 done
 ;;
@@ -48,6 +49,7 @@ while [ ${images} -gt ${count} ];
 do
         #docker rmi $repo/$image:$count
         docker push $registry/$newrepo/$newimage:$count
+        sleep 2
 count=$[$count+1]
 done
 ;;
@@ -59,6 +61,8 @@ while [ ${images} -gt ${count} ];
 do
         #docker rmi $repo/$image:$count
         docker build -t $repo/$image:$count .
+        sleep 2
+
 count=$[$count+1]
 done
 ;;
